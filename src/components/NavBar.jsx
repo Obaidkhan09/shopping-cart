@@ -18,7 +18,6 @@ export default function NavBar() {
           <Toolbar>
             <Typography
               variant="h5"
-              component="div"
               fontFamily='Lobster'
               sx={{ flexGrow: 1 }}
               component={Link}
