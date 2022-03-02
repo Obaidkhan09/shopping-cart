@@ -10,15 +10,15 @@ export default function Slider() {
     const fadeImages = [
         {
             url: `${img1}`,
-            caption: <h1 style={{ color: '#E8542B', textShadow: '1.5px 1.5px 2px rgb(0,0,0,0.7)' }}>Welcome to Our Store.<br /> We Provide 24/7 Service</h1>
+            caption: <h1 style={{ color: 'white', textShadow: '1.5px 1.5px 2px rgb(0,0,0,0.7)' }}>Welcome to Our Store.<br /> We Provide 24/7 Service</h1>
         },
         {
             url: `${img2}`,
-            caption: <h1 style={{ color: '#E8542B', textShadow: '1.5px 1.5px 2px rgb(0,0,0,0.5)' }}>We Offer Huge Variety Quality Garanteed</h1>
+            caption: <h1 style={{ color: 'white', textShadow: '1.5px 1.5px 2px rgb(0,0,0,0.5)' }}>We Offer Huge Variety Quality Garanteed</h1>
         },
         {
             url: `${img3}`,
-            caption: <div style={{ color: '#E8542B', textShadow: '1.5px 1.5px 2px rgb(0,0,0,0.5)', textAlign : 'center' }}>
+            caption: <div style={{ color: 'white', textShadow: '1.5px 1.5px 2px rgb(0,0,0,0.5)', textAlign : 'center' }}>
                 <h1>Most Loved Phones on Installment Available</h1>
                 <h1>Yes. You Heard it Right.!</h1>
             </div>
