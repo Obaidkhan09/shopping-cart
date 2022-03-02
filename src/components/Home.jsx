@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import { getItem } from '../features/productSlice';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../features/cartSlice';
+import Slider from './slider/Slider';
 
 export default function Home() {
     const dispatch = useDispatch();
@@ -40,11 +41,26 @@ export default function Home() {
     }
     return (
         <div>
+            <Slider />
+            <div style={{ display:'flex', justifyContent:'center' }}>
+                <h1 style={{
+                    marginTop: '55px',
+                    textAlign: 'center',
+                    fontFamily: 'Lobster',
+                    fontSize: '3.3rem',
+                    backgroundColor: 'white',
+                    boxShadow: '3px 3px 5px rgb(0,0,0,0.5)',
+                    width: '50%',
+                    borderRadius: '15px'
+                }}>
+                    New Arrival
+                </h1>
+            </div>
             <Grid container>
                 {dataList.map((item) => (
                     <Grid key={item.name} item xs={12} sm={4} md={3}
-                    style={{ display: 'flex', justifyContent: "center" }} >
-                        <Card sx={{ maxWidth: 235, borderRadius : '15px', marginTop : '30px' }} elevation={8}>
+                        style={{ display: 'flex', justifyContent: "center" }} >
+                        <Card sx={{ maxWidth: 235, borderRadius: '15px', margin: '55px 0px' }} elevation={8}>
                             <CardMedia
                                 component="img"
                                 alt={item.name}
@@ -53,10 +69,10 @@ export default function Home() {
                                 style={{ top: "0px" }}
                             />
                             <div
-                            style={{
-                                border : "1px solid #ff5722",
-                                borderRadius : "0px 0px 15px 15px"
-                            }}
+                                style={{
+                                    border: "1px solid #ff5722",
+                                    borderRadius: "0px 0px 15px 15px"
+                                }}
                             >
                                 <CardContent >
                                     <Typography gutterBottom variant="h5" component="div">
@@ -74,18 +90,18 @@ export default function Home() {
                                         variant='contained'
                                         size="small"
                                         sx={{
-                                            "&.MuiButton-contained": { color: "white", backgroundColor : "#ff5722" }
-                                            }}
+                                            "&.MuiButton-contained": { color: "white", backgroundColor: "#ff5722" }
+                                        }}
                                     >
                                         Details
                                     </Button>
                                     <Button
-                                    size="small"
-                                    variant='outlined'
-                                    sx={{
-                                        "&.MuiButton-outlined": { color: "#ff5722", borderColor : "#ff5722" }
+                                        size="small"
+                                        variant='outlined'
+                                        sx={{
+                                            "&.MuiButton-outlined": { color: "#ff5722", borderColor: "#ff5722" }
                                         }}
-                                        onClick={()=>handleAddToCart(item)}
+                                        onClick={() => handleAddToCart(item)}
                                     >
                                         Add to Cart
                                     </Button>
