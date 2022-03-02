@@ -95,8 +95,6 @@ export const cartSlice = createSlice({
             const tempIndex = state.cartItems.findIndex( (item) => item.id === action.payload.id );
             state.cartItems[tempIndex].cartQuantity +=1;
             localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
-            console.log(state.cartItems[tempIndex]);
-            console.log(action.payload)
             toast.info(`${action.payload.name} Quantity is Increased!`, {
                 position: "bottom-left",
                 autoClose: 3000,
@@ -105,7 +103,7 @@ export const cartSlice = createSlice({
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-                theme : 'colored'
+                theme : 'colored',
                 });
         },
         clearCart (state, action) {
@@ -135,10 +133,12 @@ export const cartSlice = createSlice({
                     totalA,
                     totalQ
                 }
+                console.log(JSON.stringify(temp));
                 return temp;
             })
-            state.cartTotalAmount = temp[0].totalA;
-            state.cartTotalQuantity = temp[0].totalQ;
+            state.cartTotalAmount = temp.length > 0 ? temp[temp.length-1].totalA ? temp[temp.length-1].totalA : 0 : 0;
+            state.cartTotalQuantity = temp.length > 0 ? temp[temp.length-1].totalQ ? temp[temp.length-1].totalQ : 0 : 0;
+            console.log(JSON.stringify(state.cartTotalAmount));
         }
     }
 });

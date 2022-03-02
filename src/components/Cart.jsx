@@ -13,8 +13,9 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
 import './styles/cart.css';
-import { clearCart, decreaseCart, getCart, getCompleteCart, increaseCart, removeFromCart } from '../features/cartSlice';
+import { cartTotal, clearCart, decreaseCart, getCart, getCompleteCart, increaseCart, removeFromCart } from '../features/cartSlice';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -44,7 +45,9 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 export default function Cart() {
   const rowsData = useSelector(getCart);
   const subTotal = useSelector(getCompleteCart);
-  console.log(subTotal)
+  useEffect(() => {
+    dispatch(cartTotal());
+  }, [subTotal])
   const dispatch = useDispatch();
   const handleCartRemove = (product) => {
     console.log(product)
@@ -90,7 +93,11 @@ export default function Cart() {
                       <StyledTableCell align="center">${row.price}</StyledTableCell>
                       <StyledTableCell align="center">
                         <ButtonGroup size='small'>
-                          <Button onClick={() => handleCartDecrement(row)}>-</Button>
+                          {row.cartQuantity === 1 ? (
+                            <Button disabled>-</Button> ) : (
+                            <Button onClick={() => handleCartDecrement(row)}>-</Button>
+                          )
+                          }
                           <Button disabled>{row.cartQuantity}</Button>
                           <Button onClick={() => handleCartIncrement(row)}>+</Button>
                         </ButtonGroup>

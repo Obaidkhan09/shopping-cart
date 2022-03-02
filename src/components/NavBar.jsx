@@ -6,7 +6,16 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Badge from '@mui/material/Badge';
 import { IconButton } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { getCompleteCart, cartTotal } from '../features/cartSlice';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 export default function NavBar() {
+  const dispatch = useDispatch();
+  const cartSum = useSelector(getCompleteCart);
+  useEffect ( ()=> {
+    dispatch(cartTotal());
+  }, [cartSum] )
   return (
     <div>
       <Box sx={{ flexGrow: 1}}>
@@ -32,7 +41,7 @@ export default function NavBar() {
               style={{ height: '50px', width: '50px' }}
             >
               <Badge
-                badgeContent={3}
+                badgeContent={cartSum.cartTotalQuantity}
                 color='secondary'
                 sx={{
                   "& .MuiBadge-badge": {

@@ -12,13 +12,14 @@ function App() {
   return (
     <div className="App">
       <ToastContainer
+        limit={3}
         position="bottom-left"
         autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
         rtl={false}
-        pauseOnFocusLoss
+        pauseOnFocusLoss={false}
         draggable
         pauseOnHover
       />
