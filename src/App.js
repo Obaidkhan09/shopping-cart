@@ -1,13 +1,13 @@
 
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import NavBar from './components/NavBar';
-import Cart from './components/Cart';
-import Home from './components/Home';
+import NavBar from './components/reuseable/NavBar';
+import Cart from './components/cart/Cart';
+import Home from './components/home/Home';
 import NotFound from './components/NotFound';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Footer from './components/footer/Footer';
+import Footer from './components/reuseable/Footer';
 
 function App() {
   return (

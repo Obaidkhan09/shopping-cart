@@ -7,7 +7,7 @@ import Badge from '@mui/material/Badge';
 import { IconButton } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getCompleteCart, cartTotal } from '../features/cartSlice';
+import { getCompleteCart, cartTotal } from '../../features/cartSlice';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 export default function NavBar() {

@@ -12,8 +12,8 @@ import { Button, ButtonGroup, Grid, IconButton } from '@mui/material';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
-import './styles/cart.css';
-import { cartTotal, clearCart, decreaseCart, getCart, getCompleteCart, increaseCart, removeFromCart } from '../features/cartSlice';
+import '../styles/cart.css';
+import { cartTotal, clearCart, decreaseCart, getCart, getCompleteCart, increaseCart, removeFromCart } from '../../features/cartSlice';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 

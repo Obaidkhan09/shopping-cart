@@ -6,10 +6,10 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Grid } from '@mui/material';
 import { useSelector } from 'react-redux';
-import { getItem } from '../features/productSlice';
+import { getItem } from '../../features/productSlice';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../features/cartSlice';
-import Slider from './slider/Slider';
+import { addToCart } from '../../features/cartSlice';
+import Slider from './Slider';
 import { useState } from 'react';
 
 export default function Home() {
