@@ -8,6 +8,7 @@ import NotFound from './components/NotFound';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Footer from './components/reuseable/Footer';
+import ProductDetails from './components/reuseable/ProductDetails';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/productDetails/:productID" element={<ProductDetails />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

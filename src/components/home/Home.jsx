@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from '../../features/cartSlice';
 import Slider from './Slider';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
     const dispatch = useDispatch();
@@ -33,6 +34,7 @@ export default function Home() {
     }
     window.addEventListener('load', screenSize);
     window.addEventListener('resize', screenSize);
+    const navigate = useNavigate();
     return (
         <div>
             <Slider />
@@ -86,6 +88,7 @@ export default function Home() {
                                         sx={{
                                             "&.MuiButton-contained": { color: "white", backgroundColor: "#ff5722" }
                                         }}
+                                        onClick={()=> {navigate(`/productDetails/${item.id -1}`)}}
                                     >
                                         Details
                                     </Button>
