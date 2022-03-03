@@ -1,5 +1,4 @@
 import Typography from '@mui/material/Typography';
-import CopyrightIcon from '@mui/icons-material/Copyright';
 import { Grid, List, ListItem } from "@mui/material";
 import '../../index.css'
 /** @jsxImportSource @emotion/react */
@@ -8,6 +7,8 @@ import { css } from '@emotion/react'
 export default function Footer() {
     const categories = ['Monday', 'Tuesday', 'Wednesday', 'Thursday'];
     const products = ['Monday', 'Tuesday', 'Wednesday', 'Thursday'];
+    const screenSize = () => {
+    }
 
   return (
     <div id="footer"

@@ -10,35 +10,29 @@ import { getItem } from '../features/productSlice';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../features/cartSlice';
 import Slider from './slider/Slider';
+import { useState } from 'react';
 
 export default function Home() {
     const dispatch = useDispatch();
-    // const dataList = [
-    //     {
-    //         name: "iPhone X",
-    //         description: "The iPhone X contains Apple's A11 Bionic system-on-chip.!",
-    //         img: "https://d1dtruvuor2iuy.cloudfront.net/media/catalog/product/i/p/iphonex-spacegray-34br-34fl-2up-us-en-screen.jpg",
-    //     },
-    //     {
-    //         name: "iPhone 11",
-    //         description: "The iPhone 11 contains Apple's A13 Bionic system-on-chip.!",
-    //         img: "https://www.mytrendyphone.eu/images/iPhone-11-Pro-64GB-Space-Grey-0190199388765-16092019-01-p.jpg",
-    //     },
-    //     {
-    //         name: "iPhone 12",
-    //         description: "The iPhone 12 contains Apple's A14 Bionic system-on-chip.!",
-    //         img: "https://images.macrumors.com/article-new/2019/10/iphone12black.jpg",
-    //     },
-    //     {
-    //         name: "iPhone 13",
-    //         description: "The iPhone 13 contains Apple's A15 Bionic system-on-chip.!",
-    //         img: "https://www.nfm.com/dw/image/v2/BDFM_PRD/on/demandware.static/-/Sites-nfm-master-catalog/default/dw0eb0752e/images/061/23/61233730-2.jpg?sw=1000&sh=1000&sm=fit",
-    //     }
-    // ];
     const dataList = useSelector(getItem);
     const handleAddToCart = (product) => {
         dispatch(addToCart(product));
     }
+    let [ headingSize, setHeadingSize ] = useState('3rem');
+    const screenSize = () => {
+        if (window.innerWidth < 1000 && window.innerWidth > 800) {
+            setHeadingSize('2rem');
+        }
+        else if (window.innerWidth < 800 && window.innerWidth > 550) {
+            setHeadingSize('1.5rem');
+        }
+        else if (window.innerWidth < 550) {
+            setHeadingSize('1.2rem');
+        }
+        else setHeadingSize('3rem')
+    }
+    window.addEventListener('load', screenSize);
+    window.addEventListener('resize', screenSize);
     return (
         <div>
             <Slider />
@@ -47,7 +41,7 @@ export default function Home() {
                     marginTop: '55px',
                     textAlign: 'center',
                     fontFamily: 'Lobster',
-                    fontSize: '3.3rem',
+                    fontSize: `${headingSize}`,
                     backgroundColor: 'white',
                     boxShadow: '3px 3px 5px rgb(0,0,0,0.5)',
                     width: '50%',

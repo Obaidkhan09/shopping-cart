@@ -133,12 +133,10 @@ export const cartSlice = createSlice({
                     totalA,
                     totalQ
                 }
-                console.log(JSON.stringify(temp));
                 return temp;
             })
             state.cartTotalAmount = temp.length > 0 ? temp[temp.length-1].totalA ? temp[temp.length-1].totalA : 0 : 0;
             state.cartTotalQuantity = temp.length > 0 ? temp[temp.length-1].totalQ ? temp[temp.length-1].totalQ : 0 : 0;
-            console.log(JSON.stringify(state.cartTotalAmount));
         }
     }
 });

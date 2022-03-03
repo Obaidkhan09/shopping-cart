@@ -47,10 +47,9 @@ export default function Cart() {
   const subTotal = useSelector(getCompleteCart);
   useEffect(() => {
     dispatch(cartTotal());
-  }, [subTotal])
+  }, [subTotal]);
   const dispatch = useDispatch();
   const handleCartRemove = (product) => {
-    console.log(product)
     dispatch(removeFromCart(product));
   }
   const handleCartIncrement = (product) => {
