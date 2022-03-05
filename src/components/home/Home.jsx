@@ -55,12 +55,12 @@ export default function Home() {
             <Grid container>
                 {dataList.map((item) => (
                     <Grid key={item.name} item xs={12} sm={4} md={3}
-                        style={{ display: 'flex', justifyContent: "center" }} >
+                        style={{ display: 'flex', justifyContent: "center", height : 550 }} >
                         <Card sx={{ maxWidth: 235, borderRadius: '15px', margin: '55px 0px' }} elevation={8}>
                             <CardMedia
                                 component="img"
                                 alt={item.name}
-                                height="220"
+                                height="200"
                                 image={item.img}
                                 style={{ top: "0px" }}
                             />
@@ -74,7 +74,7 @@ export default function Home() {
                                     <Typography gutterBottom variant="h5" component="div">
                                         {item.name}
                                     </Typography>
-                                    <Typography variant="body2">
+                                    <Typography variant="body2" style={{ maxHeight : 79, textOverflow : 'ellipsis', overflow : 'hidden' }}>
                                         {item.description}
                                     </Typography>
                                     <Typography variant="h5" mt={1}>
@@ -88,7 +88,8 @@ export default function Home() {
                                         sx={{
                                             "&.MuiButton-contained": { color: "white", backgroundColor: "#ff5722" }
                                         }}
-                                        onClick={()=> {navigate(`/productDetails/${item.id -1}`)}}
+                                        onClick={()=> {navigate(`/productDetails/${item._id}`)
+                                        console.log(item._id)}}
                                     >
                                         Details
                                     </Button>
